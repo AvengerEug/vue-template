@@ -9,6 +9,7 @@
 
 <script>
 import { HTTP } from '../plugins'
+import API_PATH from '@/constants/apiPath'
 
 export default {
   name: 'HelloWorld',
@@ -18,12 +19,20 @@ export default {
     }
   },
   methods: {
-    get () {
-      HTTP.get('1', 2).then((data) => {
-        console.log('data :', data)
-      }).catch((error) => {
-        console.log('error :', error)
+    async get () {
+      await HTTP.$axios.get(API_PATH.USER.FETCH_ALL_USER)
+    },
+    put () {
+    },
+    async post () {
+      const response = await HTTP.$axios.post(API_PATH.USER.LOGIN, {
+        userName: 'eugene',
+        password: 'abc123_'
       })
+
+      this.$cookie.set('jwt-token', response.data)
+    },
+    delete () {
     }
   }
 }
