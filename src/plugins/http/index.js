@@ -10,7 +10,7 @@ axios.interceptors.request.use((config = {}) => {
   console.log('请求拦截器: ')
   console.log('config :', config)
 
-  config.headers = { 'jwt-token': '12312321312sdfgasadfsdf' }
+  config.headers = { 'jwt-token': 'eyJhbGciOiJIUzUxMiJ9.eyJldWdlbmUiOnsidXNlcklkIjoxLCJ1c2VyTmFtZSI6ImV1Z2VuZSIsInBhc3N3b3JkIjoiYWJjMTIzXyJ9LCJleHAiOjE1Njk0NzUxMjF9.Qs84u14hAe_otPl9oF6sTeLyJDFG_E5BzYi8hmNb6_3R-4gZlkHaoF2Z6NN3h7gk1U4uFayPSZP8mu8epfewTA' }
 
   return config
 })
