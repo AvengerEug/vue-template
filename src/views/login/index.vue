@@ -72,7 +72,7 @@
   }
 </script>
 
-<style>
+<style style="scss" scoped>
   .el-container {
     width: 545px;
     margin: 0 auto;
