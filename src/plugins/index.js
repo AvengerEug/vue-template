@@ -1,9 +1,9 @@
 import HTTP from './http'
-import Cookie from './cookie'
 import Elementui from './Elementui'
+import I18n from './I18n'
 
 export {
-    HTTP,
-    Cookie,
-    Elementui
+  HTTP,
+  Elementui,
+  I18n
 }
