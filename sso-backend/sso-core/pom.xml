@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>sso-backend</artifactId>
-        <groupId>com.tianma.sso</groupId>
+        <groupId>com.eugene.sso</groupId>
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -20,16 +20,20 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <!-- slf4j框架在集成springboot时将scope设置成provide, 因为springboot中
+         默认导入了很多jar包, 若想运行sso-core项目时 需要将scope标签去掉 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -49,7 +53,7 @@
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>com.tianma.sso.decodingjwt.entry.JwtSign</mainClass>
+                            <mainClass>com.eugene.sso.decodingjwt.entry.JwtSign</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,5 +1,10 @@
 server:
   port: 8891
+  tomcat:
+    basedir: ./tomcat
+    access-log-enabled: true
+    accesslog:
+      directory: ./access-log
 
 spring:
   datasource:
@@ -27,10 +32,22 @@ spring:
 # mybatis配置
 #########################
 mybatis:
-  mapperLocations:  classpath*:mappers/*Mapper.xml
-  typeAliasesPackage:  com.tianma.sso.model
-  typeHandlersPackage: com.tianma.sso.dao.mybatis.typehandler
+  mapperLocations:  classpath:mappers/*Mapper.xml
+  typeAliasesPackage:  com.eugene.sso.model
+  typeHandlersPackage: com.eugene.sso.dao.mybatis.typehandler
   configuration:
     cacheEnabled: true
     # 使用自带mybatis 打印日志不会输出在日志中
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  project:
+    application: SSO
+  slf4j:
+    enabled: false
+  config: classpath:logback-spring.xml
+
+apilog:
+  logfolder:
+    folderPath: ${server.tomcat.basedir}/api-log
+

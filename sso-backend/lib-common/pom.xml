@@ -7,7 +7,7 @@
     <artifactId>lib-common</artifactId>
 
     <parent>
-        <groupId>com.tianma.sso</groupId>
+        <groupId>com.eugene.sso</groupId>
         <artifactId>sso-backend</artifactId>
         <version>0.0.1</version>
         <relativePath>../</relativePath>
@@ -15,7 +15,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.tianma.sso</groupId>
+            <groupId>com.eugene.sso</groupId>
             <artifactId>sso-core</artifactId>
             <version>0.0.1</version>
         </dependency>

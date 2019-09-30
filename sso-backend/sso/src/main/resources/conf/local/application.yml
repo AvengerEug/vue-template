@@ -1,5 +1,10 @@
 server:
   port: 8890
+  tomcat:
+    basedir: ./tomcat
+    access-log-enabled: true
+    accesslog:
+      directory: ./access-log
 
 spring:
   datasource:
@@ -16,7 +21,7 @@ spring:
       pool:
         # 连接池最大连接数（使用负值表示没有限制）
         max-active: -1
-        # 连接池中的最小空闲连接
+        # 连接池0中的最小空闲连接
         min-idle: 0
         # 连接池中的最大空闲连接
         max-idle: 8
@@ -28,15 +33,21 @@ spring:
 #########################
 mybatis:
   mapperLocations:  classpath:mappers/*Mapper.xml
-  typeAliasesPackage:  com.tianma.sso.model
-  typeHandlersPackage: com.tianma.sso.dao.mybatis.typehandler
+  typeAliasesPackage:  com.eugene.sso.model
+  typeHandlersPackage: com.eugene.sso.dao.mybatis.typehandler
   configuration:
     cacheEnabled: true
     # 使用自带mybatis 打印日志不会输出在日志中
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
-  level:
-    root: INFO
-    com.tianma.sso.dao: INFO
-    config: classpath:logback.xml
+  project:
+    application: SSO
+  slf4j:
+    enabled: false
+  config: classpath:logback-spring.xml
+
+apilog:
+  logfolder:
+    folderPath: ${server.tomcat.basedir}/api-log
+

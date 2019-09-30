@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.tianma.sso.model.User">
+<mapper namespace="com.eugene.sso.model.User">
     <resultMap id="userMap" type="User">
         <id column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="password" property="password"/>
     </resultMap>
 
-    <cache type="com.tianma.sso.cache.RedisCache"/>
+    <cache type="com.eugene.sso.cache.RedisCache"/>
+
+    <insert id="create" useGeneratedKeys="true" keyProperty="userId" parameterType="User">
+        INSERT INTO
+            user(
+            user_name,
+            password
+            )
+        VALUES(
+            #{userName},
+            #{password}
+            )
+    </insert>
 
     <sql id="fields">
         user_id, user_name, password
     </sql>
 
-    <select id="checkLoginInfo" resultMap="userMap" parameterType="map" useCache="false">
+    <select id="checkLoginInfo" resultMap="userMap" parameterType="map" useCache="true">
         SELECT
             <include refid="fields" />
         FROM
             user
         WHERE user_name = #{userName} AND password = #{password}
     </select>
+
+    <select id="selectByUserName" parameterType="string" resultMap="userMap" useCache="false">
+        <![CDATA[
+            SELECT * FROM user WHERE user_name = #{parameter}
+        ]]>
+    </select>
+
 </mapper>
