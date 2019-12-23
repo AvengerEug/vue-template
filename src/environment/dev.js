@@ -1,4 +1,4 @@
 export default {
-  backendDomain: 'http://127.0.0.1:8080',
+  backendDomain: 'http://10.102.161.18:8890',
   locale: 'zn-CN'
 }

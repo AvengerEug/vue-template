@@ -1,6 +1,9 @@
 export default {
   USER: {
-    FETCH_ALL_USER: '/user/fetch-all-info',
-    LOGIN: '/user/login'
+    FETCH_USER_INFO: '/user/fetch-user-info',
+    LOGIN: '/user/login',
+    GET_BY_ID: '/user/info/{id}',
+    UPDATE: '/user',
+    PARSE_TOKEN: '/user/parse-token'
   }
 }

@@ -149,3 +149,7 @@ html {
   -ms-overflow-x: hidden;
   overflow-x: hidden;
 }
+
+body {
+  /* background-image: url('../images/default-background.png'); */
+}

@@ -1,7 +1,7 @@
 {
-  "name": "vue-template",
+  "name": "SSO-Frontend",
   "version": "1.0.0",
-  "description": "A vue.js template project that include axios, route, vuex, cookie, i18n and so on",
+  "description": "A vue.js project about sso-frontend",
   "author": "AvengerEug <eugenesumarry@163.com>",
   "private": true,
   "scripts": {

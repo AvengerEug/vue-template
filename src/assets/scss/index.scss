@@ -1,8 +1,28 @@
-.el-container {
+.el-container, .common-containner {
   border: 1px solid gray;
   margin: 5px 5px;
 }
 
+.no-border {
+  border: none;
+}
+
 .common-padding {
   padding: 0 20px;
+}
+
+.common-pagination {
+  float: right;
+}
+
+.default-background-color {
+  background-color: #f4f4f4;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.no-background {
+  background: none !important;
 }

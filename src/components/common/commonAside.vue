@@ -1,35 +1,36 @@
 <template>
   <div>
+    <!-- {{ $t('sso.common.system.title') }} -->
     <el-menu
-      default-active="2"
+      :default-active="activeMenu"
       class="el-menu-vertical-demo"
       @open="handleOpen"
-      @close="handleClose">
+      @close="handleClose"
+      background-color="#f4f4f4"
+      :collapse="isCollapse"
+      :router="true"
+      ref="elMenu">
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <span>用户管理</span>
         </template>
+
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item index="/user/index">
+            <i class="el-icon-menu"></i>
+            <span slot="title">列表</span>
+          </el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
       </el-submenu>
+
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <span slot="title">模块二</span>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
+      <el-menu-item index="3">
         <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
+        <span slot="title">模块三</span>
       </el-menu-item>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
@@ -41,9 +42,9 @@
 
 <style>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
     min-height: 400px;
   }
+
 </style>
 
 <script>
@@ -51,8 +52,13 @@
     name: 'sso-aside',
     data() {
       return {
-        isCollapse: true
+        isCollapse: false
       };
+    },
+    computed: {
+      activeMenu: vm => {
+        return vm.$route.path
+      }
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -60,7 +66,15 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      collapse() {
+        this.isCollapse = !this.isCollapse
+        return this.isCollapse
       }
+    },
+    mounted() {
+      // 临时处理访问更改页面, 侧边栏不下拉的问题
+      //this.$refs['elMenu'].open("1")
     }
   }
 </script>
