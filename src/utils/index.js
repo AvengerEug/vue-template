@@ -26,4 +26,8 @@ export default class Util {
 
     return url + queryUrl
   }
+
+  static isExternal = (path) => {
+    return /^(https?:|mailto:|tel:)/.test(path)
+  }
 }

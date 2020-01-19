@@ -44,6 +44,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
+        exclude: [resolve('src/plugins/icons')],
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -68,6 +69,14 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass']
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/plugins/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
       }
     ]
   },
