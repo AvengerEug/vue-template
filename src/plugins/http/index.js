@@ -9,9 +9,9 @@ axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8'
 // 添加请求拦截器
 axios.interceptors.request.use((config = {}) => {
 
-  if (Session.checkTokenIsExist()) {
+  /* if (Session.checkTokenIsExist()) {
     config.headers['jwt-token'] = Session.getToken()
-  }
+  } */
 
   return config
 })
@@ -20,11 +20,11 @@ axios.interceptors.request.use((config = {}) => {
 axios.interceptors.response.use((response) => {
   return response.data
  }, (error) => {
-  console.log('401: redirect to admin-login error :', error)
+  /* console.log('401: redirect to admin-login error :', error)
   if (error.request.status === ErrorCode.UN_AUTH) {
     Session.removeToken()
     window.location.href = "/admin-login"
-  }
+  } */
 
   return Promise.reject(error)
 })

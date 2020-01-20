@@ -1,4 +1,6 @@
-export default class Util {
+import Breadcrumb from '@/constants/breadcrumb'
+
+export default class Utils {
 
   static fetchRouteQuery = route => {
     return route.query
@@ -29,5 +31,19 @@ export default class Util {
 
   static isExternal = (path) => {
     return /^(https?:|mailto:|tel:)/.test(path)
+  }
+
+  static parseBreadcrumb = (currentRoute) => {
+    const breadcrumbKeys = Object.keys(Breadcrumb)
+    for (let i = 0; i < breadcrumbKeys.length; i++) {
+      if (breadcrumbKeys[i] === currentRoute.name) {
+        console.log('Breadcrumb[breadcrumbKeys[i]] :', Breadcrumb[breadcrumbKeys[i]])
+        return Breadcrumb[breadcrumbKeys[i]]
+      }
+    }
+  }
+
+  static doProcecommonrBreadcrumb = (currentRoute) => {
+    return Utils.parseBreadcrumb(currentRoute)
   }
 }

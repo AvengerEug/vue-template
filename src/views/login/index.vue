@@ -44,7 +44,7 @@
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="submitForm('userForm')">Login</el-button>
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
+        <span style="margin-right:20px;">username: any</span>
         <span> password: any</span>
       </div>
 
@@ -94,7 +94,7 @@
         this.loading = true
         this.$refs[formName].validate(async (valid) => {
           if (valid) {
-            const response = await userService.login({
+            /* const response = await userService.login({
               userName: this.userForm.userName,
               password: this.userForm.password
             })
@@ -105,7 +105,7 @@
               return
             }
 
-            Session.setToken(response.data)
+            Session.setToken(response.data) */
             this.loading = false
             this.$router.push({name: 'user-list'})
           } else {

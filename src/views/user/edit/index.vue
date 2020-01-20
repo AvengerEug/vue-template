@@ -1,5 +1,5 @@
 <template>
-  <el-container class="no-border">
+  <el-container class="no-border ">
     <el-form :model="userForm" :rules="rules" ref="userForm" label-width="100px" class="demo-userForm">
       <el-form-item :label="$t('user.userName')" prop="userName">
         <el-input :placeholder="$t('user.userNamePlaceholder')" v-model="userForm.userName" :disabled="isUpdate"></el-input>
@@ -62,7 +62,7 @@
 
         this.$refs[formName].validate(async (valid) => {
           if (valid) {
-            let response = undefined
+            /* let response = undefined
             if (this.isUpdate) {
               response = await userService.updateUser(this.userForm)
             } else {
@@ -73,10 +73,10 @@
               this.$message({type: 'error', message: response.errorMessage})
 
               return
-            }
+            } */
 
             this.$message({type: 'success', message: '提交成功'})
-            this.$router.push({name: 'admin-sso-account'})
+            this.$router.push({name: 'user-list'})
 
           } else {
             console.log('error submit!!')
@@ -85,14 +85,18 @@
         })
       },
       resetForm(formName) {
+        this.$message({type: 'warning', message: '暂未实现'})
+        return
         this.$refs[formName].resetFields()
       },
       fetchRouteQuery() {
         return this.$route.query
       },
       async getById(id) {
-        const response = await userService.getById(this.$route.params.id)
-        this.userForm = response.data
+        // const response = await userService.getById(this.$route.params.id)
+        const response = require('@/constants/mock')
+        this.userForm = response.data.items.filter(item => {return item.uuid === this.$route.params.id})[0]
+        console.log('this.userForm :', this.userForm)
       },
       init() {
         if (this.isUpdate) {
@@ -113,5 +117,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.el-container {
+  margin-top: 20px;
+}
 </style>

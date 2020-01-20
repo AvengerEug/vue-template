@@ -2,25 +2,25 @@
   <el-container class="no-border">
     <el-header>
       <el-form :inline="true" :model="searchForm" class="search-condition" size="small" ref="searchForm">
-        <el-form-item label="关键字" prop="keywords">
-          <el-input v-model="searchForm.keywords" placeholder="请输入关键字"/>
+        <el-form-item :label="$t('common.keywords')" prop="keywords">
+          <el-input v-model="searchForm.keywords" :placeholder="$t('common.inputKeywords')"/>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">查询</el-button>
+          <el-button type="primary" @click="onSubmit">{{$t('common.query')}}</el-button>
           <router-link :to="{name: 'user-create'}">
-            <el-button type="success">新建</el-button>
+            <el-button type="success">{{$t('common.create')}}</el-button>
           </router-link>
-          <el-button type="warning" @click="reset()">重置</el-button>
+          <el-button type="warning" @click="reset()">{{$t('common.reset')}}</el-button>
         </el-form-item>
       </el-form>
     </el-header>
 
     <el-main>
       <el-table :data="userTable" border style="width: 100%">
-        <el-table-column prop="userId" label="用户ID" width="180" />
-        <el-table-column prop="userName" label="用户名" width="180" />
-        <el-table-column prop="password" label="密码" />
-        <el-table-column fixed="right" label="操作" width="100">
+        <el-table-column prop="userId" :label="$t('user.userId')" width="180" />
+        <el-table-column prop="userName" :label="$t('user.userName')" width="180" />
+        <el-table-column prop="password" :label="$t('user.password')"  />
+        <el-table-column fixed="right" :label="$t('common.operation')" width="100">
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="edit(scope.row)" size="mini"/>
           </template>
@@ -65,7 +65,8 @@
         this.onSubmit()
       },
       async fetchUserInfo(params) {
-        const response = await userService.fetchUserInfo(params)
+        //const response = await userService.fetchUserInfo(params)
+        const response = require('@/constants/mock')
         this.userTable = response.data.items
         this.pagination = response.data.pagination
       },

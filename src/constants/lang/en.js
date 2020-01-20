@@ -1,13 +1,19 @@
 module.exports = {
   common: {
     system: {
-      title: 'SSO-simple login backend'
+      title: 'manager backend'
     },
     login: 'login',
-    reset: 'reset'
+    reset: 'reset',
+    register: 'register',
+    submit: 'submit',
+    keywords: 'keywords',
+    query: 'query',
+    create: 'create',
+    operation: 'operation',
+    inputKeywords: 'please input keywords'
   },
   user: {
-    title: 'SSO',
     userName: 'userName',
     userNamePlaceholder: 'Please input username',
     adminName: 'adminName',
@@ -17,6 +23,14 @@ module.exports = {
     email: 'email',
     emailPlaceholder: 'Please input email',
     phone: 'phone',
-    phonePlaceholder: 'Please input phone'
+    phonePlaceholder: 'Please input phone',
+    userId: 'user ID'
+  },
+  router: {
+    'user': 'User Mode',
+    'user-list': 'User List',
+    'user-edit': 'Create(Upadte)',
+    'example': 'Example',
+    'example-table': 'Table'
   }
 }

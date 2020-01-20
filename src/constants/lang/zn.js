@@ -1,15 +1,19 @@
 module.exports = {
   common: {
     system: {
-      title: 'SSO-单点登录后台'
+      title: '管理后台'
     },
     login: '登录',
     reset: '重置',
     register: '注册',
-    submit: '提交'
+    submit: '提交',
+    keywords: '关键字',
+    query: '查询',
+    create: '新建',
+    operation: '操作',
+    inputKeywords: '请输入关键字'
   },
   user: {
-    title: '单点登录',
     userName: '用户名',
     userNamePlaceholder: '请输入用户名',
     adminName: '管理员',
@@ -23,6 +27,15 @@ module.exports = {
     email: '邮箱',
     emailPlaceholder: '请输入邮箱',
     phone: '手机号',
-    phonePlaceholder: '请输入手机号'
+    phonePlaceholder: '请输入手机号',
+    userId: '用户ID'
+  },
+  router: {
+    'user': '用户模块',
+    'user-list': '用户列表',
+    'user-edit': '编辑(新增)',
+    'user-create': '编辑(新增)',
+    'example': '栗子',
+    'example-table': '表格'
   }
 }

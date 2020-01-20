@@ -1,7 +1,7 @@
 {
-  "name": "SSO-Frontend",
+  "name": "Vue-Template",
   "version": "1.0.0",
-  "description": "A vue.js project about sso-frontend",
+  "description": "A vue.js project template about manager backend",
   "author": "AvengerEug <eugenesumarry@163.com>",
   "private": true,
   "scripts": {
