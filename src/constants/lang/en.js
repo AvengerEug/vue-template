@@ -31,6 +31,12 @@ module.exports = {
     'user-list': 'User List',
     'user-edit': 'Create(Upadte)',
     'example': 'Example',
-    'example-table': 'Table'
+    'example-table': 'Table',
+    'icons': 'icons'
+  },
+  icons: {
+    index: 'icons',
+    recommond: 'Click and copy to use',
+    elementuiIcons: 'Element-UI Icons',
   }
 }

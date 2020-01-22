@@ -36,6 +36,12 @@ module.exports = {
     'user-edit': '编辑(新增)',
     'user-create': '编辑(新增)',
     'example': '栗子',
-    'example-table': '表格'
+    'example-table': '表格',
+    'icons': '图标'
+  },
+  icons: {
+    index: '图标',
+    recommond: '点击icon即可复制',
+    elementuiIcons: 'Element-UI 图标',
   }
 }
