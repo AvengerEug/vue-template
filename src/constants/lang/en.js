@@ -4,6 +4,7 @@ module.exports = {
       title: 'manager backend'
     },
     login: 'login',
+    logout: 'logout',
     reset: 'reset',
     register: 'register',
     submit: 'submit',

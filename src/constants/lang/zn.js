@@ -4,6 +4,7 @@ module.exports = {
       title: '管理后台'
     },
     login: '登录',
+    logout: '注销',
     reset: '重置',
     register: '注册',
     submit: '提交',

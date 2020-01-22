@@ -5,34 +5,20 @@
     <breadcrumb class="breadcrumb-container"/>
 
     <div class="right-menu">
-      <el-dropdown class="i18n-container" trigger="hover">
+
+      <dropdown :items="i18nItems" class="i18n-container">
         <div class="i18n-wrapper">
           <svg-icon icon-class="language" />
         </div>
-        <el-dropdown-menu slot="dropdown" class="i18n-dropdown">
+      </dropdown>
 
-          <el-dropdown-item @click.native="changeI18n('zn')">
-            <span style="display:block;">中文</span>
-          </el-dropdown-item>
-
-          <el-dropdown-item @click.native="changeI18n('en')">
-            <span style="display:block;">English</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-
-      <el-dropdown class="avatar-container" trigger="hover">
+      <dropdown :items="avatarItems" class="avatar-container">
         <div class="avatar-wrapper">
           <img src="@/assets/static/avatar.gif" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
+      </dropdown>
 
-          <el-dropdown-item @click.native="logout">
-            <span style="display:block;">注销</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
     </div>
   </div>
 </template>
@@ -40,16 +26,25 @@
 <script>
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import Dropdown from '@/components/Dropdown'
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    Dropdown
   },
   data() {
     return {
       avatar: '',
-      active: true
+      active: true,
+      i18nItems: [
+        { content: '中文', icon: '', callback: () => { this.changeI18n('zn') }},
+        { content: 'English', icon: '', callback: () => { this.changeI18n('en') }}
+      ],
+      avatarItems: [
+        { content: '注销', icon: '', callback: () => { this.logout() } }
+      ]
     }
   },
   methods: {

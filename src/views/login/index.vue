@@ -53,73 +53,73 @@
 </template>
 
 <script>
-  import { HTTP, Session } from '@/plugins'
-  import API_PATH from '@/constants/apiPath'
-  import ERROR_CODE from '@/constants/errorCode'
-  import userService from '@/service/userService'
+import { HTTP, Session } from '@/plugins'
+import API_PATH from '@/constants/apiPath'
+import ERROR_CODE from '@/constants/errorCode'
+import UserService from '@/service/UserService'
 
-  export default {
-    data() {
-      return {
-        userForm: {
-          userName: '',
-          password: ''
-        },
-        rules: {
-          userName: [
-            { required: true, message: '请输入用户名', trigger: 'blur' },
-            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
-          ],
-          password: [
-            { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
-          ],
-        },
-        passwordType: 'password',
-        loading: false
-      };
-    },
-    methods: {
-      showPwd() {
-        if (this.passwordType === 'password') {
-          this.passwordType = ''
-        } else {
-          this.passwordType = 'password'
-        }
-        this.$nextTick(() => {
-          this.$refs.password.focus()
-        })
+export default {
+  data() {
+    return {
+      userForm: {
+        userName: '',
+        password: ''
       },
-      submitForm(formName) {
-        this.loading = true
-        this.$refs[formName].validate(async (valid) => {
-          if (valid) {
-            /* const response = await userService.login({
-              userName: this.userForm.userName,
-              password: this.userForm.password
-            })
-
-            if (response.statusCode == 500) {
-              this.$message({type: 'error', message: response.errorMessage})
-
-              return
-            }
-
-            Session.setToken(response.data) */
-            this.loading = false
-            this.$router.push({name: 'user-list'})
-          } else {
-            console.log('error submit!!')
-            return false
-          }
-        })
-        this.loading = false
+      rules: {
+        userName: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
+        ],
       },
-      resetForm(formName) {
-        this.$refs[formName].resetFields()
+      passwordType: 'password',
+      loading: false
+    };
+  },
+  methods: {
+    showPwd() {
+      if (this.passwordType === 'password') {
+        this.passwordType = ''
+      } else {
+        this.passwordType = 'password'
       }
+      this.$nextTick(() => {
+        this.$refs.password.focus()
+      })
+    },
+    submitForm(formName) {
+      this.loading = true
+      this.$refs[formName].validate(async (valid) => {
+        if (valid) {
+          /* const response = await UserService.login({
+            userName: this.userForm.userName,
+            password: this.userForm.password
+          })
+
+          if (response.statusCode == 500) {
+            this.$message({type: 'error', message: response.errorMessage})
+
+            return
+          }
+
+          Session.setToken(response.data) */
+          this.loading = false
+          this.$router.push({name: 'user-list'})
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+      this.loading = false
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields()
     }
   }
+}
 </script>
 
 <style lang="scss">

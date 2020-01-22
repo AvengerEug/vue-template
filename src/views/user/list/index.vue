@@ -46,63 +46,63 @@
 </template>
 
 <script>
-  import { Pagination } from '@/plugins'
-  import userService from '@/service/userService'
+import { Pagination } from '@/plugins'
+import UserService from '@/service/UserService'
 
-  export default {
-    data() {
-      return {
-        userTable: [],
-        pagination: (() => {return Object.assign({}, Pagination)})(),
-        searchForm: {
-          keywords: undefined
-        }
+export default {
+  data() {
+    return {
+      userTable: [],
+      pagination: (() => {return Object.assign({}, Pagination)})(),
+      searchForm: {
+        keywords: undefined
       }
-    },
-    methods: {
-      reset() {
-        this.$refs['searchForm'].resetFields()
-        this.onSubmit()
-      },
-      async fetchUserInfo(params) {
-        //const response = await userService.fetchUserInfo(params)
-        const response = require('@/constants/mock')
-        this.userTable = response.data.items
-        this.pagination = response.data.pagination
-      },
-      init() {
-        this.initUserInfo()
-      },
-      initUserInfo() {
-        this.fetchUserInfo({
-          params: this.pagination
-        })
-      },
-      handleSizeChange(pageSize) {
-        this.pagination.pageSize = pageSize
-        this.fetchUserInfo({
-          params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
-        })
-      },
-      handleIndexChange(pageIndex) {
-        this.pagination.pageIndex = pageIndex
-        this.fetchUserInfo({
-          params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
-        })
-      },
-      onSubmit() {
-        this.fetchUserInfo({
-          params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
-        })
-      },
-      edit(currenUser) {
-        this.$router.push({name: 'user-edit', params: {id: currenUser.uuid}})
-      }
-    },
-    mounted() {
-      this.init()
     }
+  },
+  methods: {
+    reset() {
+      this.$refs['searchForm'].resetFields()
+      this.onSubmit()
+    },
+    async fetchUserInfo(params) {
+      //const response = await UserService.fetchUserInfo(params)
+      const response = require('@/constants/mock')
+      this.userTable = response.data.items
+      this.pagination = response.data.pagination
+    },
+    init() {
+      this.initUserInfo()
+    },
+    initUserInfo() {
+      this.fetchUserInfo({
+        params: this.pagination
+      })
+    },
+    handleSizeChange(pageSize) {
+      this.pagination.pageSize = pageSize
+      this.fetchUserInfo({
+        params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
+      })
+    },
+    handleIndexChange(pageIndex) {
+      this.pagination.pageIndex = pageIndex
+      this.fetchUserInfo({
+        params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
+      })
+    },
+    onSubmit() {
+      this.fetchUserInfo({
+        params: Object.assign(this.pagination, {keywords: this.searchForm.keywords})
+      })
+    },
+    edit(currenUser) {
+      this.$router.push({name: 'user-edit', params: {id: currenUser.uuid}})
+    }
+  },
+  mounted() {
+    this.init()
   }
+}
 </script>
 
 <style lang="scss" scoped>

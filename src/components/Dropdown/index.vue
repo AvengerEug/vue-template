@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown @command="handleCommand">
+  <el-dropdown @command="handleCommand" trigger="hover">
     <!-- 插槽内容 -->
     <slot/>
 
@@ -17,26 +17,30 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      /**
-       * items结构例子: 
-       * [{content: '黄金糕', icon: 'el-icon-plus', callback: () => {console.log('callback')}}]
-       */
-      items: {
-        type: Array,
-        default: () => { return [
+export default {
+  props: {
+    /**
+     * items结构例子: 
+     * [{content: '黄金糕', icon: 'el-icon-plus', callback: () => {console.log('callback')}}]
+     */
+    items: {
+      type: Array,
+      default: () => { 
+        return [
           {content: 'defaultContent', icon: 'el-icon-plus', callback: () => {console.log('callback')}}
-          ]
-        }
-      }
-    },
-    methods: {
-      handleCommand(callback) {
-        callback()
+        ]
       }
     }
+  },
+  methods: {
+    handleCommand(callback) {
+      callback()
+    }
+  },
+  mounted() {
+    console.log('this.items :', this.items)
   }
+}
 </script>
 
 <style lang="scss" scoped>
