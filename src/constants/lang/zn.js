@@ -12,7 +12,8 @@ module.exports = {
     query: '查询',
     create: '新建',
     operation: '操作',
-    inputKeywords: '请输入关键字'
+    inputKeywords: '请输入关键字',
+    sendMsg: '发送WebSocket信息'
   },
   user: {
     userName: '用户名',
@@ -31,6 +32,7 @@ module.exports = {
     phonePlaceholder: '请输入手机号',
     userId: '用户ID'
   },
+  // 侧边栏的显示内容
   router: {
     'user': '用户模块',
     'user-list': '用户列表',
@@ -38,11 +40,16 @@ module.exports = {
     'user-create': '编辑(新增)',
     'example': '栗子',
     'example-table': '表格',
-    'icons': '图标'
+    'icons': '图标',
+    'socket-index': 'web socket'
   },
   icons: {
     index: '图标',
     recommond: '点击icon即可复制',
     elementuiIcons: 'Element-UI 图标',
+  },
+  socket: {
+    barrage: '弹幕',
+    talk: '请输入你想说的话'
   }
 }

@@ -37,11 +37,17 @@ const icons = {
   routeName: 'icons-index'
 }
 
+const socketIndex = {
+  displayName: 'router.socket-index',
+  routeName: 'socket-index'
+}
+
 
 module.exports = {
   'user-list': [ userList ],
   'user-edit': [ userList, userEdit ],
   'user-create': [userList, userCreate],
   'example-table': [ exampleTable ],
-  'icons-index': [ icons ]
+  'icons-index': [ icons ],
+  'socket-index': [ socketIndex ]
 }
