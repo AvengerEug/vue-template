@@ -13,6 +13,7 @@
   3. vuex: 页面与页面间通信神器
   4. i18n: 国际化，根据浏览器的设置自动选择语言(控制台输入vue.$i18n.locale="es-US")
   5. 支持scss style格式
+  6. 支持springboot stomp协议的web socket
 
 
 ## 项目预览

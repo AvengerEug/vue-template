@@ -104,6 +104,21 @@ const router = new Router({
           meta: { title: 'icons', icon: 'icon' }
         }
       ]
+    },
+    {
+      path: '/socket',
+      component: Layout,
+      name: 'socket',
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/socket/index'),
+          // 面包屑的名称
+          name: 'socket-index',
+          // title: 侧边栏国际化的key
+          meta: { title: 'socket-index', icon: 'peoples'}
+        }
+      ]
     }
   ]
 })

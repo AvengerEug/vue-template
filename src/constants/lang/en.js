@@ -12,7 +12,8 @@ module.exports = {
     query: 'query',
     create: 'create',
     operation: 'operation',
-    inputKeywords: 'please input keywords'
+    inputKeywords: 'please input keywords',
+    sendMsg: 'send web socket message'
   },
   user: {
     userName: 'userName',
@@ -33,11 +34,16 @@ module.exports = {
     'user-edit': 'Create(Upadte)',
     'example': 'Example',
     'example-table': 'Table',
-    'icons': 'icons'
+    'icons': 'icons',
+    'socket-index': 'web socket'
   },
   icons: {
     index: 'icons',
     recommond: 'Click and copy to use',
     elementuiIcons: 'Element-UI Icons',
+  },
+  socket: {
+    barrage: 'barrage',
+    talk: '请输入你想说的话'
   }
 }
