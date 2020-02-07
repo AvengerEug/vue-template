@@ -18,10 +18,21 @@
       </el-form>
     </el-main>
 
+    <el-footer>
+      <h2>count1: {{count1}}</h2>
+      <h2>count: {{count}}</h2>
+      <h2>countAlias: {{count}}</h2>
+      <h2>handleCount: {{handleCount}}</h2>
+
+      <el-button type="success" @click="incrementCount()">increment count</el-button>
+    </el-footer>
+
   </el-container>
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -33,7 +44,26 @@ export default {
       }
     }
   },
+  computed: {
+    // 计算属性别使用箭头函数, 否则this无法获取到当前vue对象
+    count1() {
+      return this.$store.state.count
+    },
+    // 使用mapState方法省去计算属性的编写, 即可直接获取vuex中state对象中的属性
+    // mapState函数返回的是一个对象, ... 三个点是对象链接扩展符, 会将所有对象链接起来
+    ...mapState(['count']),
+    ...mapState({
+      count: state => state.count, // 类似于 (state) => { return state.count }  
+      countAlias: 'count', // count计算属性的别名, 要与上面key一样, count: state => state.count 中的count
+      handleCount(state) {
+        return state.count + 10
+      }
+    })
+  },
   methods: {
+    ...mapMutations({
+      incrementCount: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+    }),
     resetSocketUserName() {
       this.socketForm.userName = ''
     },

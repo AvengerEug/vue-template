@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    {{count}}
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -60,6 +61,11 @@ export default {
     return {
       list: [],
       listLoading: true
+    }
+  },
+  computed: {
+    count() {
+      return this.$store.state.count
     }
   },
   created() {
