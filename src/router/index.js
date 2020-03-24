@@ -119,6 +119,32 @@ const router = new Router({
           meta: { title: 'socket-index', icon: 'peoples'}
         }
       ]
+    },
+    {
+      path: '/permission',
+      component: Layout,
+      redirect: '/permission/admin',
+      name: 'permission-index',
+      meta: { title: 'permission-index', icon: 'tree-table'},
+      alwaysShow: true,
+      children: [
+        {
+          path: 'admin',
+          component: () => import('@/views/permission/admin'),
+          // 面包屑的名称
+          name: 'permission-admin',
+          // title: 侧边栏国际化的key
+          meta: { title: 'permission-admin', icon: 'tree'}
+        },
+        {
+          path: 'user',
+          component: () => import('@/views/permission/user'),
+          // 面包屑的名称
+          name: 'permission-user',
+          // title: 侧边栏国际化的key
+          meta: { title: 'permission-user', icon: 'tree'}
+        }
+      ]
     }
   ]
 })

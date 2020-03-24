@@ -42,6 +42,21 @@ const socketIndex = {
   routeName: 'socket-index'
 }
 
+const permissionIndex = {
+  displayName: 'router.permission-index',
+  routerName: 'permission-index'
+}
+
+const permissionUser = {
+  displayName: 'router.permission-user',
+  routerName: 'permission-user'
+}
+
+const permissionAdmin = {
+  displayName: 'router.permission-admin',
+  routerName: 'permission-admin'
+}
+
 
 module.exports = {
   'user-list': [ userList ],
@@ -49,5 +64,8 @@ module.exports = {
   'user-create': [userList, userCreate],
   'example-table': [ exampleTable ],
   'icons-index': [ icons ],
-  'socket-index': [ socketIndex ]
+  'socket-index': [ socketIndex ],
+  'permission-index': [ permissionIndex ],
+  'permission-user': [ permissionUser],
+  'permission-admin': [ permissionAdmin ],
 }

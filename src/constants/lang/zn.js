@@ -41,7 +41,10 @@ module.exports = {
     'example': '栗子',
     'example-table': '表格',
     'icons': '图标',
-    'socket-index': 'web socket'
+    'socket-index': 'web socket',
+    'permission-index': '权限管理',
+    'permission-admin': '全局管理',
+    'permission-user': '用户管理'
   },
   icons: {
     index: '图标',
