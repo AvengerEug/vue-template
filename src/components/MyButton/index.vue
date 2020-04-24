@@ -1,79 +1,93 @@
 <template>
-  <el-container class="no-border">
-    <my-container>
-    </my-container>
-  </el-container>
+  <div style="border: 1px solid blue">
+    <p>子组件myButton </p>
+    <p v-if="isShow">点击button隐藏我</p>
+    <el-button type="success" size="small"  @click="changeStatus()">{{contents}}</el-button>
+  </div>
 </template>
 
 <script>
-import { Pagination } from '@/plugins'
-import UserService from '@/service/UserService'
-import MyContainer from '@/components/MyContainer'
-
 export default {
-  components: {
-    MyContainer
+  props: {
+    contents: {
+      type: String,
+      default: '点我隐藏'
+    }
   },
   data() {
     return {
+      isShow: true
+    }
+  },
+  methods: {
+    changeStatus() {
+      this.isShow = !this.isShow
     }
   },
   beforeCreate: function() {
-    console.group('------beforeCreate创建前状态------');
+    console.group('------子组件myButton beforeCreate创建前状态------');
     console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
     console.log("%c%s", "color:red","data   : " + this.$data); //undefined 
     console.log("%c%s", "color:red","message: " + this.message) 
     console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   created: function() {
-    console.group('------created创建完毕状态------');
+    console.group('------子组件myButton created创建完毕状态------');
     console.log("%c%s", "color:red","el     : " + this.$el); //undefined
     console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
     console.log("%c%s", "color:red","message: " + this.message); //已被初始化
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   beforeMount: function() {
-    console.group('------beforeMount挂载前状态------');
+    console.group('------子组件myButton beforeMount挂载前状态------');
     console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
     console.log(this.$el);
     console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化  
     console.log("%c%s", "color:red","message: " + this.message); //已被初始化  
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   mounted: function() {
-    console.group('------mounted 挂载结束状态------');
+    console.group('------子组件myButton mounted 挂载结束状态------');
     console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
     console.log(this.$el);    
     console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
     console.log("%c%s", "color:red","message: " + this.message); //已被初始化 
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   beforeUpdate: function () {
-    console.group('beforeUpdate 更新前状态===============》');
+    console.group('子组件myButton beforeUpdate 更新前状态===============》');
     console.log("%c%s", "color:red","el     : " + this.$el);
     console.log(this.$el);   
     console.log("%c%s", "color:red","data   : " + this.$data); 
     console.log("%c%s", "color:red","message: " + this.message); 
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   updated: function () {
-    console.group('updated 更新完成状态===============》');
+    console.group('子组件myButton updated 更新完成状态===============》');
     console.log("%c%s", "color:red","el     : " + this.$el);
     console.log(this.$el); 
     console.log("%c%s", "color:red","data   : " + this.$data); 
     console.log("%c%s", "color:red","message: " + this.message); 
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   beforeDestroy: function () {
-    console.group('beforeDestroy 销毁前状态===============》');
+    console.group('子组件myButton beforeDestroy 销毁前状态===============》');
     console.log("%c%s", "color:red","el     : " + this.$el);
     console.log(this.$el);    
     console.log("%c%s", "color:red","data   : " + this.$data); 
     console.log("%c%s", "color:red","message: " + this.message); 
-  console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
   },
   destroyed: function () {
-    console.group('destroyed 销毁完成状态===============》');
+    console.group('子组件myButton destroyed 销毁完成状态===============》');
+    console.log("%c%s", "color:red","el     : " + this.$el);
+    console.log(this.$el);  
+    console.log("%c%s", "color:red","data   : " + this.$data); 
+    console.log("%c%s", "color:red","message: " + this.message)
+    console.log("%c%s", "color:red","handleMessage: " + this.handleMessage) 
+  },
+  mounted: function() {
+    console.group('子组件myButton mounted状态===============》');
     console.log("%c%s", "color:red","el     : " + this.$el);
     console.log(this.$el);  
     console.log("%c%s", "color:red","data   : " + this.$data); 
@@ -82,9 +96,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .search-condition {
-    padding-top: 20px;
-  }
-</style>
